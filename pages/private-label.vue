@@ -14,12 +14,11 @@
             class="bg-slightly-dark py-4 h-[360px] rounded-2xl shadow-md border border-tiniest-border"
           >
             <div class="flex flex-col items-center justify-center gap-8">
-              <Image
+              <img
                 :src="product.image"
                 :alt="product.name"
-                class="object-cover"
-              >
-              </Image>
+                class="object-cover w-[200px] h-[200px]"
+              />
               <div class="flex flex-col justify-center items-center gap-4">
                 <p class="text-xl uppercase text-gray-50">{{ product.name }}</p>
                 <p class="font-light text-gray-200">
@@ -74,6 +73,12 @@
 </template>
 
 <script setup>
+definePageMeta({
+  pageTransition: {
+    name: "fade",
+    mode: "out-in",
+  },
+});
 // Form handling logic would go here
 const products = useProducts();
 </script>

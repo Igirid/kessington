@@ -14,7 +14,7 @@
 
     <!-- Main Content -->
     <div class="relative max-w-7xl mx-auto h-full pt-16 pb-16 px-4 md:px-8">
-      <div class="grid md:grid-cols-2 gap-16">
+      <div class="grid md:grid-cols-2 gap-16 items-center justify-between">
         <!-- Left Content -->
         <div class="text-primary-text space-y-4 pt-20">
           <h1 class="text-5xl md:text-[64px] font-medium leading-tight">
@@ -31,8 +31,7 @@
           </p>
         </div>
 
-        <!-- Right Content - Slider -->
-        <div class="relative">
+        <!-- <div class="relative">
           <swiper
             :modules="[SwiperAutoplay]"
             :effect="'coverflow'"
@@ -53,7 +52,6 @@
             }"
             class="w-full h-full swiper-container"
           >
-            <!-- Patient Care Slide -->
             <swiper-slide class="!w-[250px] bg-white p-4 rounded-lg">
               <div
                 class="relative rounded-xl overflow-hidden shadow-lg bg-green-400"
@@ -71,7 +69,6 @@
               </div>
             </swiper-slide>
 
-            <!-- Quality Certified Slide -->
             <swiper-slide class="!w-[250px] bg-white p-4 rounded-lg">
               <div
                 class="relative rounded-xl overflow-hidden shadow-lg bg-white border-0"
@@ -89,7 +86,6 @@
               </div>
             </swiper-slide>
 
-            <!-- Distribution Slide -->
             <swiper-slide class="!w-[250px] bg-white p-4 rounded-lg">
               <div class="relative rounded-xl overflow-hidden shadow-lg">
                 <img
@@ -105,6 +101,23 @@
               </div>
             </swiper-slide>
           </swiper>
+        </div> -->
+
+        <div
+          class="relative w-[470px] h-[400px] flex items-center justify-center overflow-hidden"
+        >
+          <div
+            v-for="(image, index) in images"
+            :key="index"
+            class="absolute transition-all duration-[2000ms] ease-in-out"
+            :class="getImageClasses(index)"
+          >
+            <img
+              :src="image"
+              alt="Carousel Image"
+              class="w-full h-full object-contain rounded-lg transition-opacity duration-[1500ms]"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -141,12 +154,71 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import { ref, onMounted } from "vue";
 
 // Swiper modules
 const SwiperAutoplay = Autoplay;
+
+const images = ref([
+  "/images/hero/1.svg",
+  "/images/hero/2.svg",
+  "/images/hero/3.svg",
+]);
+
+const currentIndex = ref(0);
+
+onMounted(() => {
+  setInterval(() => {
+    currentIndex.value = (currentIndex.value + 1) % images.value.length;
+  }, 6000); // 2s delay + 0.8s animation duration
+});
+
+// const getImageClasses = (index) => {
+//   if (index === currentIndex.value) {
+//     return "z-20 scale-110 opacity-100"; // Front image (larger & full opacity)
+//   }
+//   if ((index + 1) % images.value.length === currentIndex.value) {
+//     return "z-10 -translate-x-30 opacity-40 scale-80"; // Left image (faded, smaller)
+//   }
+//   return "z-10 translate-x-30 opacity-40 scale-80"; // Right image (faded, smaller)
+// };
+
+// const getImageClasses = (index) => {
+//   const prevIndex = (currentIndex.value - 1 + images.value.length) % images.value.length;
+
+//   if (index === currentIndex.value) {
+//     return "z-10 scale-110 opacity-100 transition-[opacity,transform] duration-[2500ms]"; // Front (larger, full opacity)
+//   }
+//   if (index === prevIndex) {
+//     return "z-0 -translate-x-24 opacity-50 scale-80 transition-none"; // Left (moves first, then fades)
+//   }
+//   return "z-0 translate-x-24 opacity-50 scale-80 transition-none"; // Right (moves first, then fades)
+// };
+
+const getImageClasses = (index) => {
+  const total = images.value.length;
+  const prevIndex = (currentIndex.value - 1 + total) % total;
+  const nextIndex = (currentIndex.value + 1) % total;
+
+  if (index === currentIndex.value) {
+    return "z-10 scale-110 opacity-100 translate-x-0"; // **Front (Biggest, Full Opacity)**
+  }
+  if (index === prevIndex) {
+    return "z-0 scale-80 opacity-50 -translate-x-[120px]"; // **Left (Moves left)**
+  }
+  if (index === nextIndex) {
+    return "z-0 scale-80 opacity-50 translate-x-[120px]"; // **Right (Moves right)**
+  }
+  return "hidden"; // Hide extra images
+};
 </script>
 
 <style scoped>
+/* Ensure smooth transitions */
+.transition-all {
+  transition: transform 2s ease-in-out, opacity 1.5s ease-in-out;
+}
+
 .swiper-container {
   padding: 50px 0;
 }

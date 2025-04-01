@@ -16,5 +16,5 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["nuxt-lucide-icons"],
+  modules: ["nuxt-lucide-icons", "@nuxt/image"],
 });

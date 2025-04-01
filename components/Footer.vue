@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-[#00172C] text-white">
+  <footer class="bg-[#00263F] text-white">
     <!-- Distributor CTA Section -->
     <div class="relative overflow-hidden py-20 md:py-24 px-4 sm:px-6 lg:px-8">
       <!-- Background pattern/stars -->
@@ -58,17 +58,18 @@
 
       <div class="max-w-5xl mx-auto text-center relative z-10">
         <h2
-          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-medium mb-8 md:mb-10"
+          class="text-3xl sm:text-4xl md:text-5xl text-[#DFF4FD] font-medium mb-8 md:mb-10 leading-tight"
         >
-          Interested In Becoming<br class="hidden sm:block" />
-          A Distributor<br class="hidden sm:block" />
+          Interested In Becoming A Distributor
+
+          <br class="hidden sm:block" />
           For Kessington Global?
         </h2>
 
         <div class="mt-10">
           <a
             href="/contact"
-            class="inline-flex items-center bg-white text-[#00172C] px-6 py-3 rounded-full font-medium transition-all hover:bg-opacity-90 group"
+            class="inline-flex items-center bg-[#DFF4FD] text-[#00172C] px-6 py-3 rounded-full font-medium transition-all hover:bg-opacity-90 group text-xs"
           >
             CONTACT US
             <svg
@@ -100,12 +101,12 @@
     <!-- Main Footer Content -->
     <div class="pt-16 pb-8 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
       <div class="max-w-7xl mx-auto">
+        <div class="mb-6">
+          <img src="/images/footer-logo.png" alt="KESSINGTON" class="h-8" />
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <!-- Column 1: Logo and Address -->
           <div>
-            <div class="mb-6">
-              <img src="/images/logo.png" alt="KESSINGTON" class="h-8" />
-            </div>
             <address class="not-italic text-gray-400 mb-6 text-sm">
               Address: 12, Eleruwa Street, Wemabod<br />
               Phone: (+234) 09063315563<br />
@@ -153,8 +154,10 @@
           <!-- Column 2: Navigation Links -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div>
-              <h3 class="text-base font-medium uppercase mb-4">HOME</h3>
-              <ul class="space-y-2 text-gray-400 text-sm">
+              <h3 class="text-sm font-medium uppercase mb-4 text-gray-400">
+                HOME
+              </h3>
+              <ul class="text-gray-400 text-sm space-y-2">
                 <li>
                   <a href="#" class="hover:text-[#80D4F7]"
                     >PRIVATE-LABELED MEDICINES</a
@@ -164,7 +167,11 @@
               </ul>
             </div>
             <div>
-              <h3 class="text-base font-medium uppercase mb-4">TESTIMONIALS</h3>
+              <h3
+                class="font-medium uppercase mb-4 text-gray-400 text-sm space-y-2"
+              >
+                TESTIMONIALS
+              </h3>
               <ul class="space-y-2 text-gray-400 text-sm">
                 <li><a href="#" class="hover:text-[#80D4F7]">CONTACT US</a></li>
                 <li><a href="#" class="hover:text-[#80D4F7]">SERVICES</a></li>
@@ -174,18 +181,20 @@
 
           <!-- Column 3: Newsletter Signup -->
           <div>
-            <h3 class="text-base font-medium uppercase mb-4">
+            <h3
+              class="mb-4 font-medium uppercase text-gray-400 text-sm space-y-2"
+            >
               SIGN UP FOR EXCLUSIVE PREVIEWS AND NEWS FROM OUR ATELIER
             </h3>
             <div class="flex">
               <input
                 type="email"
                 placeholder="Email"
-                class="bg-[#001022] border-b border-gray-600 text-white px-3 py-2 w-full focus:outline-none focus:border-[#80D4F7]"
+                class="border-b border-gray-600 text-white px-3 py-2 w-full focus:outline-none focus:border-[#80D4F7]"
               />
               <button class="bg-transparent p-2">
                 <svg
-                  class="w-6 h-6 text-white"
+                  class="w-6 stroke-[1px] text-tiny-border"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -217,6 +226,10 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div>
+      <img src="/images/pattern.png" class="w-full" alt="img pattern" />
     </div>
   </footer>
 </template>

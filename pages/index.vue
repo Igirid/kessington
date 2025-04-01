@@ -9,6 +9,12 @@
 </template>
 
 <script setup>
+definePageMeta({
+  pageTransition: {
+    name: "fade",
+    mode: "out-in",
+  },
+});
 import Hero from "~/components/Hero.vue";
 import TrustedPartners from "~/components/TrustedPartners.vue";
 import VendorSupport from "~/components/VendorSupport.vue";
