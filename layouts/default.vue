@@ -23,13 +23,11 @@ import Footer from "~/components/Footer.vue";
 .fade-enter-from {
   opacity: 0;
   transform: translateY(200px);
-  transform: scaleY(0px); /* Move up from bottom */
 }
 
 .fade-enter-to {
   opacity: 1;
   transform: translateY(0);
-  transform: scaleY(400px); /* Move up from bottom */
 }
 
 .fade-leave-from {
