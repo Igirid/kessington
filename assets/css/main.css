@@ -13,6 +13,7 @@
   --color-tiny-border: rgba(232, 236, 239, 0.5);
   --color-tinier-border: rgba(232, 236, 239, 0.25);
   --color-tiniest-border: rgba(232, 236, 239, 0.1);
+  --color-light-header: #DFF4FD;
 }
 
 /* Font declarations */
