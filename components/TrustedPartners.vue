@@ -6,8 +6,8 @@
         <div
           class="inline-block px-4 py-2 bg-[#DFF4FD] rounded-full mb-6 md:mb-10"
         >
-          <span class="text-xs font-medium text-primary-blue uppercase"
-            >ABOUT KESSINGTON HEALTH</span
+          <p class="font-ibm text-xs font-medium text-primary-blue uppercase"
+            >ABOUT KESSINGTON HEALTH</p
           >
         </div>
 
@@ -29,7 +29,7 @@
         <div
           class="inline-block px-4 py-2 bg-[#DFF4FD] rounded-full mb-6 md:mb-10"
         >
-          <span class="text-xs font-medium text-primary-blue uppercase"
+          <span class="text-xs font-ibm font-medium text-primary-blue uppercase"
             >TRUSTED BY TOP PHARMACIES</span
           >
         </div>
@@ -175,7 +175,7 @@
         <div
           class="inline-block px-4 py-2 bg-[#DFF4FD] rounded-full mb-6 md:mb-10"
         >
-          <span class="text-xs font-medium text-[#00263F] uppercase"
+          <span class="font-ibm text-xs font-medium text-[#00263F] uppercase"
             >POPULAR PRODUCTS</span
           >
         </div>
