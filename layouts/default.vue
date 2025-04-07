@@ -1,8 +1,10 @@
 <template>
   <Transition :name="$route.meta.pageTransition?.name || 'fade'" mode="out-in">
-    <div class="min-h-screen bg-white px-4 py-2">
-      <Navbar />
-      <NuxtPage />
+    <div class="min-h-screen bg-white pt-2">
+      <div class="px-4">
+        <Navbar />
+        <NuxtPage />
+      </div>
       <Footer />
     </div>
   </Transition>

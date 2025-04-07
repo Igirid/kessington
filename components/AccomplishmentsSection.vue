@@ -7,7 +7,7 @@
     </div>
 
     <!-- Testimonials Section -->
-    <div class="bg-[#E6F4F9] py-16 md:py-24 px-4 sm:px-6 md:px-8">
+    <div class="py-16 md:py-24 px-4 sm:px-6 md:px-8">
       <div class="max-w-7xl mx-auto rounded-2xl">
         <p
           class="text-[64px] font-medium leading-tight text-[#00263F] mb-10 md:mb-16"

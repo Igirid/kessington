@@ -14,16 +14,17 @@
 
     <!-- Main Content -->
     <div class="relative max-w-7xl mx-auto h-full pt-16 pb-16 px-4 md:px-8">
-      <div class="grid md:grid-cols-2 gap-16 items-center justify-between">
+      <div class="flex gap-4 items-center justify-between px-4 lg:px-12">
         <!-- Left Content -->
-        <div class="text-primary-text space-y-4 pt-20">
-          <h1 class="text-5xl md:text-[64px] font-medium leading-tight">
+
+        <div class="text-primary-text space-y-[24px]">
+          <p class="text-[40px] lg:text-[64px] font-medium leading-tight">
             Caring For Your<br />
             Health Is Our No.<br />
             One Priority
-          </h1>
+          </p>
           <p
-            class="text-[#DFF4FDE5] text-base max-w-lg font-normal leading-relaxed"
+            class="text-[#DFF4FDE5] text-base max-w-xs lg:max-w-lg font-normal leading-relaxed"
           >
             We are a leading manufacturer and distributor of a wide range of
             registered active products, supported by a network of over 700
@@ -103,7 +104,7 @@
           </swiper>
         </div> -->
 
-        <div
+        <!-- <div
           class="relative w-[470px] h-[400px] flex items-center justify-center overflow-hidden"
         >
           <div
@@ -115,9 +116,28 @@
             <img
               :src="image"
               alt="Carousel Image"
-              class="w-full h-full object-contain rounded-lg transition-opacity duration-[1500ms]"
+              class="w-full h-full object-cover rounded-lg"
             />
           </div>
+        </div> -->
+        <div
+          class="relative w-[400px] lg:w-[450px] h-[400px] flex justify-start pl-24 pt-16 overflow-visible"
+        >
+          <TransitionGroup name="carousel" tag="div">
+            <div
+              v-for="(image, index) in images"
+              :key="image"
+              class="absolute transition-all duration-[2000ms] ease-in-out"
+              :class="getImageClasses(index)"
+            >
+              <img
+                :src="image"
+                alt="Carousel Image"
+                
+                class="w-auto h-full max-w-full max-h-full object-contain rounded-lg"
+              />
+            </div>
+          </TransitionGroup>
         </div>
       </div>
     </div>
@@ -160,129 +180,90 @@ import { ref, onMounted } from "vue";
 const SwiperAutoplay = Autoplay;
 
 const images = ref([
-  "/images/hero/1.svg",
-  "/images/hero/2.svg",
-  "/images/hero/3.svg",
+  "/images/hero/1.png",
+  "/images/hero/2.png",
+  "/images/hero/3.png",
 ]);
 
-const currentIndex = ref(0);
+// const currentIndex = ref(0);
+let intervalId = null;
+const carouselIndex = ref(0);
+
+// Function to update carousel index instead of modifying the array
+const nextSlide = () => {
+  carouselIndex.value = (carouselIndex.value + 1) % images.value.length;
+};
 
 onMounted(() => {
-  setInterval(() => {
-    currentIndex.value = (currentIndex.value + 1) % images.value.length;
-  }, 6000); // 2s delay + 0.8s animation duration
+  intervalId = setInterval(nextSlide, 6000);
 });
 
+onUnmounted(() => {
+  clearInterval(intervalId);
+});
+
+// Function to get dynamic classes based on index
 // const getImageClasses = (index) => {
-//   if (index === currentIndex.value) {
-//     return "z-20 scale-110 opacity-100"; // Front image (larger & full opacity)
-//   }
-//   if ((index + 1) % images.value.length === currentIndex.value) {
-//     return "z-10 -translate-x-30 opacity-40 scale-80"; // Left image (faded, smaller)
-//   }
-//   return "z-10 translate-x-30 opacity-40 scale-80"; // Right image (faded, smaller)
+//   return {
+//     "absolute w-[350px] z-10 opacity-100 scale-[120%] animate-to-left": index === 1,
+//     "absolute z-0 opacity-50 scale-[90%] animate-to-right": index === 0,
+//     "absolute z-0 opacity-50 scale-[90%] animate-to-middle ": index === 2,
+//   };
 // };
-
-// const getImageClasses = (index) => {
-//   const prevIndex = (currentIndex.value - 1 + images.value.length) % images.value.length;
-
-//   if (index === currentIndex.value) {
-//     return "z-10 scale-110 opacity-100 transition-[opacity,transform] duration-[2500ms]"; // Front (larger, full opacity)
-//   }
-//   if (index === prevIndex) {
-//     return "z-0 -translate-x-24 opacity-50 scale-80 transition-none"; // Left (moves first, then fades)
-//   }
-//   return "z-0 translate-x-24 opacity-50 scale-80 transition-none"; // Right (moves first, then fades)
-// };
-
 const getImageClasses = (index) => {
-  const total = images.value.length;
-  const prevIndex = (currentIndex.value - 1 + total) % total;
-  const nextIndex = (currentIndex.value + 1) % total;
+  const positions = [
+    "animate-to-left z-10 opacity-100 scale-[100%]", // Center (active)
+    "animate-to-right z-0 opacity-40 scale-[80%]", // Moving out
+    "animate-to-middle z-0 opacity-40 scale-[80%]", // Moving in
+  ];
 
-  if (index === currentIndex.value) {
-    return "z-10 scale-110 opacity-100 translate-x-0"; // **Front (Biggest, Full Opacity)**
-  }
-  if (index === prevIndex) {
-    return "z-0 scale-80 opacity-50 -translate-x-[120px]"; // **Left (Moves left)**
-  }
-  if (index === nextIndex) {
-    return "z-0 scale-80 opacity-50 translate-x-[120px]"; // **Right (Moves right)**
-  }
-  return "hidden"; // Hide extra images
+  // Calculate new position based on current carousel index
+  const positionIndex =
+    (index - carouselIndex.value + images.value.length) % images.value.length;
+  return `absolute h-auto ${positions[positionIndex]}`;
 };
 </script>
 
 <style scoped>
+/* Center Image (Current) */
+.animate-to-left {
+  transform: translateX(0) scale(1.2);
+  opacity: 1;
+}
+
+/* Right Image (Moving Out) */
+.animate-to-right {
+  transform: translateX(100%) scale(0.9);
+  opacity: 0.5;
+}
+
+/* Left Image (Moving In) */
+.animate-to-middle {
+  transform: translateX(-100%) scale(0.9);
+  opacity: 0.5;
+}
+
+/* Vue TransitionGroup Animations */
+.carousel-move {
+  transition: transform 2s ease-in-out, opacity 1500s ease-in-out;
+}
 /* Ensure smooth transitions */
-.transition-all {
-  transition: transform 2s ease-in-out, opacity 1.5s ease-in-out;
+
+
+/* .carousel-enter-from .animate-to-middle,
+.carousel-leave-to .animate-to-middle{
+
+} */
+
+
+
+/* .animate-to-right {
+  animation: right 1s infinite ease-in-out z-0;
 }
-
-.swiper-container {
-  padding: 50px 0;
+.animate-to-left {
+  animation: middle 1s infinite ease-in-out z-0;
 }
-
-.swiper-slide {
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.swiper-slide-active {
-  transform: scale(1.05);
-  z-index: 10;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.swiper-slide-prev,
-.swiper-slide-next {
-  transform: scale(0.85);
-  opacity: 0.7;
-}
-
-:deep(.swiper-pagination) {
-  bottom: 0 !important;
-}
-
-:deep(.swiper-pagination-bullet) {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-:deep(.swiper-pagination-bullet-active) {
-  background: white;
-}
-
-.scroll-indicator::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 2px solid #2d8bbb;
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-
-.curves::after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-
-  border-bottom-left-radius: 40%;
-
-  background-color: #00263f;
-  z-index: 10;
-  right: -19px;
-  bottom: -1px;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
-}
+.animate-to-middle {
+  animation: right 1s infinite ease-in-out z-10;
+} */
 </style>

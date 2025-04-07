@@ -15,12 +15,12 @@
         <div
           class="bg-[#E6F4F9] rounded-xl p-6 w-[680px] flex flex-col grow px-[49px]"
         >
-          <h2
+          <p
             class="text-[64px] font-bold text-[#00263F] mb-8 sm:mb-10 md:mb-12 leading-tight"
           >
             For Wholesalers &<br class="hidden sm:block" />
             Distributors
-          </h2>
+          </p>
 
           <!-- Timeline Features -->
           <div class="relative">
@@ -37,7 +37,11 @@
                 <div
                   class="w-12 h-12 px-2 bg-[#DFF4FD] border-[1px] border-gray-400 flex items-center justify-center"
                 >
-                  <img src="/images/strategic.png" class="w-5 h-5" alt="Wholesaler Icon" />
+                  <img
+                    src="/images/strategic.png"
+                    class="w-5 h-5"
+                    alt="Wholesaler Icon"
+                  />
                 </div>
               </div>
               <h3

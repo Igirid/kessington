@@ -5,13 +5,13 @@
     <div class="max-w-7xl mx-auto">
       <div class="pt-16">
         <div class="">
-          <h2
+          <p
             class="text-3xl md:text-6xl font-medium text-[#00263F] mb-10 leading-tight"
           >
             Vendor Support &<br />
             Private-Label<br />
             Medicines
-          </h2>
+        </p>
           <!-- <img
               class="w-full h-full absolute top-0 left-0 object-cover z-0"
               src="/images/vendor/feature.svg"
@@ -42,20 +42,20 @@
 
           <div class="text-white relative h-max md:h-[804px]">
             <!-- bg-[url(/vendor/shape-container.svg)] -->
-            <div class="w-full h-full mx-auto px-8 py-16">
+            <div class="w-full h-max mx-auto px-8 py-16">
               <img
-                class="absolute inset-0 z-0 w-full h-full object-right-top object-contain"
-                src="/public/vendor/shape-container.svg"
+                class="absolute inset-0 z-0 w-full h-full object-right-top object-cover"
+                src="/public/vendor/shape-container.png"
               />
               <!-- style="align-items: last baseline" -->
               <div
-                class="absolute md:pl-56 inset-0 h-full mx-auto flex flex-col justify-center items-center"
+                class="absolute pl-[10rem] lg:pl-[20rem] inset-0 h-full mx-auto flex flex-col justify-center items-center"
               >
-                <h3
-                  class="mt-10 text-light-header text-3xl md:text-[64px] mb-16 md:mb-20 font-medium leading-tight flex self-start"
+                <p
+                  class="mt-10 text-light-header mb-2 lg:mb-10 text-3xl md:text-[64px] font-medium p-0 leading-tight flex self-start"
                 >
                   Keep Your Shelves<br />Well-Stocked
-                </h3>
+                </p>
 
                 <div class="space-y-16 relative">
                   <div
@@ -80,7 +80,7 @@
                   >
                     <div class="md:w-16 flex items-start">
                       <div
-                        class="w-12 h-12 rounded-md border border-white/30 flex items-center justify-center bg-[#00263F] relative z-10"
+                        class="w-12 h-12 rounded border border-white/30 flex items-center justify-center bg-[#00263F] relative z-10"
                       >
                         <svg
                           class="stroke-[1px] stroke-tiniest-border"
@@ -135,11 +135,11 @@
                   >
                     <div class="md:w-16 flex items-start">
                       <div
-                        class="w-12 h-12 rounded-md border border-white/30 flex items-center justify-center bg-[#00263F] relative z-10"
+                        class="w-12 h-12 border border-white/30 flex items-center justify-center bg-[#00263F] relative z-10"
                       >
                         <svg
-                        class="stroke-[1px]  stroke-tiniest-border"
-                        width="25"
+                          class="stroke-[1px] stroke-tiniest-border"
+                          width="25"
                           height="17"
                           viewBox="0 0 25 17"
                           fill="none"
@@ -187,7 +187,7 @@
                   >
                     <div class="md:w-16 flex items-start">
                       <div
-                        class="w-12 h-12 rounded-md border border-white/30 flex items-center justify-center bg-[#00263F] relative z-10"
+                        class="w-12 h-12 border border-white/30 flex items-center justify-center bg-[#00263F] relative z-10"
                       >
                         <!-- <svg
                           class="stroke-[1px] stroke-white fill-primary-blue"

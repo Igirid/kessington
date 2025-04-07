@@ -7,13 +7,19 @@
   --color-text-gray: #677986;
   --color-accent-blue: #0c7e98;
   --color-primary-text: #dff4fd;
+  --color-gradient-footer-from: rgba(45, 139, 187, 0.5);
+  --color-gradient-footer-to: rgba(223, 244, 253, 0.5);
   /* --color-slightly-dark: #0A1A24; */
   /* --color-slightly-dark: #022e4b; */
   --color-slightly-dark: rgba(0, 38, 63, 0.4);
   --color-tiny-border: rgba(232, 236, 239, 0.5);
   --color-tinier-border: rgba(232, 236, 239, 0.25);
   --color-tiniest-border: rgba(232, 236, 239, 0.1);
-  --color-light-header: #DFF4FD;
+  --color-light-header: #dff4fd;
+  --font-ibm: "IBM-Plex-Mono";
+}
+@theme {
+
 }
 
 /* Font declarations */
@@ -60,10 +66,6 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-}
-
-@theme{
-    --font-ibm: "IBM-Plex-Mono";
 }
 
 /* Global styles */

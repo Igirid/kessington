@@ -38,7 +38,7 @@
             />
           </div> -->
           <div
-            class="relative mb-4 w-full h-[400px] md:h-[580px] flex justify-between gap-x-8 bg-transparent rounded-lg overflow-hidden"
+            class="relative mb-4 w-full h-[400px] md:h-[620px] flex justify-between gap-x-8 bg-transparent rounded-lg overflow-hidden"
           >
             <!-- First Image (Bottom Layer) -->
             <div class="relative w-[calc(50%-4px)] h-full">
@@ -120,9 +120,9 @@
                   <NuxtImg class="" src="/images/Line.svg"> </NuxtImg>
 
                   <div
-                    class="bg-gray-800 cursor-pointer px-18 py-4 opacity-50 w-max"
+                    class="bg-gray-800 cursor-pointer px-[70px] py-[25px] opacity-60 w-max mb-4                                                                                                                                      "
                   >
-                    <p class="text-sm text-white font-mono">Get Direction</p>
+                    <p class="text-xs font-medium text-light-header font-ibm uppercase">Get Direction</p>
                   </div>
                 </div>
               </div>

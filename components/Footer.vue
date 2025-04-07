@@ -1,13 +1,61 @@
 <template>
-  <footer class="bg-[#00263F] text-white">
+  <footer class="bg-[#00263F] text-white p-12 mx-auto">
     <!-- Distributor CTA Section -->
-    <div class="relative overflow-hidden py-20 md:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="relative overflow-hidden py-20 px-12 w-full h-auto rounded-lg">
       <!-- Background pattern/stars -->
-      <div class="absolute inset-0 opacity-30">
+      <div class="relative inset-0 border border-primary-blue z-10 rounded-lg w-full h-[326px]">
         <!-- width="1232"
         height="302" -->
+        <!-- gradient -->
         <svg
-          class="absolute top-0 left-0 w-full h-full stroke-[1px] stroke-tiny-border"
+          class="relative inset-0 w-full h-[326px]"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="1280"
+            height="326"
+            rx="24"
+            fill="url(#paint0_linear_655_3418)"
+            fill-opacity="0.09"
+          />
+          <rect
+            x="0.5"
+            y="0.5"
+            width="1279"
+            height="325"
+            rx="23.5"
+            stroke="url(#paint1_linear_655_3418)"
+            stroke-opacity="0.18"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_655_3418"
+              x1="640"
+              y1="0"
+              x2="640"
+              y2="326"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#0064A5" stop-opacity="0" />
+              <stop offset="1" stop-color="#0064A5" />
+            </linearGradient>
+            <linearGradient
+              id="paint1_linear_655_3418"
+              x1="640"
+              y1="0"
+              x2="640"
+              y2="326"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="white" stop-opacity="0" />
+              <stop offset="1" stop-color="white" stop-opacity="0.2" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <svg
+          class="absolute left-5 top-[2%] lg:top-[1%] w-[92%] h-[326px] stroke-[1px] stroke-tiniest-border"
           viewBox="0 0 1232 302"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -1078,7 +1126,7 @@
         </div> -->
       </div>
 
-      <div class="max-w-5xl mx-auto text-center relative z-10">
+      <div class="max-w-5xl mx-auto text-center absolute bottom-36 inset-x-0 z-10">
         <p
           class="text-3xl sm:text-4xl md:text-5xl text-[#DFF4FD] font-medium mb-8 md:mb-10 leading-tight"
         >
@@ -1089,9 +1137,9 @@
         </p>
 
         <div class="mt-10">
-          <a
-            href="/contact"
-            class="inline-flex items-center bg-[#DFF4FD] text-[#00172C] px-6 py-3 rounded-full font-medium transition-all hover:bg-opacity-90 group text-xs"
+          <NuxtLink
+            to="/contact"
+            class="inline-flex font-ibm items-center bg-[#DFF4FD] text-[#00172C] px-6 py-3 rounded-full font-medium transition-all hover:bg-opacity-90 group text-xs"
           >
             CONTACT US
             <svg
@@ -1115,7 +1163,7 @@
                 stroke-linejoin="round"
               />
             </svg>
-          </a>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -1174,11 +1222,11 @@
           </div>
 
           <!-- Column 2: Navigation Links -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 w-max">
             <div>
-              <h3 class="text-sm font-medium uppercase mb-4 text-gray-400">
+              <p class="text-sm font-medium uppercase mb-4 text-gray-400">
                 HOME
-              </h3>
+              </p>
               <ul class="text-gray-400 text-sm space-y-2">
                 <li>
                   <a href="#" class="hover:text-[#80D4F7]"
@@ -1204,19 +1252,19 @@
           <!-- Column 3: Newsletter Signup -->
           <div>
             <h3
-              class="mb-4 font-medium uppercase text-gray-400 text-sm space-y-2"
+              class="mb-4 font-medium uppercase text-gray-400 text-sm space-y-2 w-[80%]"
             >
               SIGN UP FOR EXCLUSIVE PREVIEWS AND NEWS FROM OUR ATELIER
             </h3>
-            <div class="flex">
+            <div class="flex relative">
               <input
                 type="email"
                 placeholder="Email"
                 class="border-b placeholder-tiniest-border border-gray-600 text-white px-3 py-2 w-full focus:outline-none focus:border-[#80D4F7]"
               />
-              <button class="bg-transparent p-2">
+              <button class="bg-transparent p-2 relative right-8">
                 <svg
-                  class="w-6 stroke-[1px] text-tiny-border"
+                  class="w-4 stroke-[1px] text-tinier-border"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -1236,7 +1284,7 @@
 
         <!-- Copyright and Terms -->
         <div
-          class="border-t border-gray-800 pt-8 text-sm text-gray-500 flex flex-col md:flex-row justify-between"
+          class="border-t border-gray-800 pt-8 text-[12px] leading-[20px] text-gray-500 flex flex-col md:flex-row justify-between"
         >
           <div>
             <p>© Kessington Global. All rights reserved.</p>
