@@ -18,7 +18,7 @@
 
       <!-- Desktop Navigation -->
       <div
-        class="hidden md:flex items-center space-x-6 border-[1px] border-tiniest-border rounded-lg p-2"
+        class="hidden font-ibm md:flex items-center space-x-6 border-[1px] border-tiniest-border rounded-lg p-2"
       >
         <NuxtLink
           v-for="link in navLinks"
